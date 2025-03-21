@@ -6,7 +6,7 @@ Given a rod of length n, we can divide it into k pieces, where k can range from 
 
 $$ 1 \leq k \leq n $$
 $$ n = i_1 + i_2 + i_3 + \cdots + i_k $$
-
+$$ r = p_{i_1} + p_{i_2} + p_{i_3} + \cdots + p_{i_k} $$
 <div align="center">
 
 | Length ($i$) | 1 | 2 | 3 | 4 | 5  | 6  | 7  | 8  | 9  | 10 |
