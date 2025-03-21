@@ -4,5 +4,5 @@ Rod cutting is a simple problem that is solvable by dynamic programming. We try 
 
 Rod length is denoted as n, and we split the rods into k number of pieces. We don't have to cut the rods; we are allowed to preserve them as a whole for selling. It is also possible to split the rods into 1-inch pieces. In that case, the following two formulas become valid. 
 
-$$ 1 \seq k \seq n $$
+$$ 1 \leq k \leq n $$
 $$ n = i_1 + i_2 + i_3 + \cdots + i_k $$
