@@ -1,8 +1,14 @@
 # Rod Cutting
 
-Rod cutting is a simple problem that is solvable by dynamic programming. We try to decide on how we split steel rods. We cut these rods and sell them. We do not need to pay anything to cut the rods, but the prices of rod splits depend on their length. At this point, we aim to maximize our income, so we try to find the best split. 
+Rod cutting is a classic problem that can be efficiently solved using dynamic programming. The objective is to determine the optimal way to cut a steel rod to maximize profit. Each segment of the rod has a price based on its length, and there's no cost associated with making the cuts.
 
-Rod length is denoted as n, and we split the rods into k number of pieces. We don't have to cut the rods; we are allowed to preserve them as a whole for selling. It is also possible to split the rods into 1-inch pieces. In that case, the following two formulas become valid. 
+Given a rod of length n, we can divide it into k pieces, where k can range from 1 (no cut) up to n (cut into 1-inch segments). We're allowed to sell the rod whole or in parts, and the goal is to find the most profitable combination of cuts. In this case, the following two formulas apply.
 
 $$ 1 \leq k \leq n $$
 $$ n = i_1 + i_2 + i_3 + \cdots + i_k $$
+
+Each piece has a length of $i_\alpha$, and piece lengths are associated with corresponding price values $p_{i_\alpha}$, presented in the following table. 
+
+| Length (i) | 1 | 2 | 3 | 4 | 5  | 6  | 7  | 8  | 9  | 10 |
+|------------|---|---|---|---|----|----|----|----|----|----|
+| Price (pi) | 1 | 5 | 8 | 9 | 10 | 17 | 17 | 20 | 24 | 30 |
