@@ -37,4 +37,13 @@ $$r_3 = max(r_1 + r_2, r_2 + r_1, p_3)$$
 
 If we make a comparison between them, the term $r_1 + r_2$ can be decomposed into $r_1 + r_1 + r_1$, which refers to $p_{111}$, or results into $p_{12}$, where $r_2$ is not recursively expanded, instead replaced to be $p_2$. Whether $r_n$ terms will be decomposed (expanded) into more sub-problems or replaced as $p_n$ relies on profit maximixation criterion in recursive structure. 
 
-To be able solve this problem, we actually decompose it into their smaller versions, but from same type. We perform this in a recursive manner.
+In this approach, we recursively split the rod into two pieces, and how we split it relies on revenue maximization. This strategy guarantees the optimal solution, but poses so many recursive calls with same, repeated sub-cases. To simplify it, we instead split the rod into two pieces, but first piece will be fixed; recursive calls are maintained through only the second (right) piece. In this formulation, the optimal solution to the main problem is subject to the recursion of one subproblem, not two. This results in such a recursive structure. 
+
+$$ r_n = max(p_i + r_{n-i} : 1 \leq i \leq n)$$
+
+<p align="center">
+  <img src="https://github.com/GoktugGuvercin/Rod-Cutting/blob/main/images/recursive_approaches.png" width="400" title="Recursive Structures">
+</p>
+
+
+
