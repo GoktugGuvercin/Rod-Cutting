@@ -42,7 +42,7 @@ In this approach, we recursively split the rod into two pieces, and how we split
 $$ r_n = max(p_i + r_{n-i} : 1 \leq i \leq n)$$
 
 <p align="center">
-  <img src="https://github.com/GoktugGuvercin/Rod-Cutting/blob/main/images/recursive_approaches.png" width="400" title="Recursive Structures">
+  <img src="https://github.com/GoktugGuvercin/Rod-Cutting/blob/main/images/recursive_approaches.png" width="700" title="Recursive Structures">
 </p>
 
 
