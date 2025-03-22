@@ -19,3 +19,9 @@ The rod with the length of $n$ can be split in $2^{n - 1}$ number of ways, and o
 
 $$n = 3 \rightarrow \\{ \\ (1, 1, 1), \\ (1, 2), \\ (2, 1), \\ (3) \\ \\}$$
 $$n = 4 \rightarrow \\{ \\ (1, 1, 1, 1), \\ (1, 1, 2), \\ (1, 2, 1), \\ (2, 1, 1), \\ (1, 3), \\ (3, 1), \\ (2, 2), \\ (4) \\ \\}$$
+
+
+When we try to solve this problem, the main intiution that we adapt in our minds is to think about all these possibilities and compute their corresponding revenues with respect to the price table. At this point, the combinations with same pieces produce same revenue; only the order of pieces are different. Hence, they can be filtered out:
+
+$$n = 3 \rightarrow \\{ \\ (1, 1, 1), \\ (1, 2), \\ (3) \\ \\}$$
+$$r_3 = max(p_111, p_12, p_3) \rightarrow r_3 = p_3 = 8$$
