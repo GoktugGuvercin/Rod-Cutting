@@ -25,3 +25,16 @@ When we try to solve this problem, the main intiution that we adapt in our minds
 
 $$n = 3 \rightarrow \\{ \\ (1, 1, 1), \\ (1, 2), \\ (3) \\ \\}$$
 $$r_3 = max(p_{111}, p_{12}, p_3) \rightarrow r_3 = p_3 = 8$$
+
+In this perspective, we actually calculate all cutting combinations and compare their revenues. This maximizes the revenue for the odd of length $3$. To generalize this idea, we can at first split the odd into $2$ arbitrary pieces, and continue to do the same operation over newly generated pieces. While doint that, we need to decide on the length of these pieces, and at some point, we need to stop. Since we dont know ahead of time which value of $i$ optimizes the revenue, we are obliged to consider all possible options. The critical point is the fact that we prioritize the maximization of the revenue for spliting into every two pieces. This defines a recursive structure where the solution of original problem requires the investigation of smaller problems from same type. 
+
+$$r_n = max(p_n, \\ r_1 + r_{n-1}, \\ r_2 + r_{n-2}, \\ \cdots, \\ r_{n-1} + r_1)$$
+
+Let's assume that you cut off the rod into two sub pieces. The optimal solution to our original rod actually incorporates the optimal solutions to those two sub pieces. To find it for both, we need to split again. This continues in a recursive manner. To summarize it, ***our approach is to maximize the revenue for every two pieces occuring after the cut off.*** This approach actually encapsulates our main intiution introduced before.
+
+$$r_3 = max(p_{111}, p_{12}, p_3)$$
+$$r_3 = max(r_1 + r_2, r_2 + r_1, p_3)$$
+
+If we make a comparison between them, the term $r_1 + r_2$ can be decomposed into $r_1 + r_1 + r_1$, which refers to $p_{111}$, or results into $p_{12}$, where $r_2$ is not recursively expanded, instead replaced to be $p_2$. Whether $r_n$ terms will be decomposed (expanded) into more sub-problems or replaced as $p_n$ relies on profit maximixation criterion in recursive structure. 
+
+To be able solve this problem, we actually decompose it into their smaller versions, but from same type. We perform this in a recursive manner.
