@@ -14,3 +14,8 @@ $$ r = p_{i_1} + p_{i_2} + p_{i_3} + \cdots + p_{i_k} $$
 | Price ($p_i$) | 1 | 5 | 8 | 9 | 10 | 17 | 17 | 20 | 24 | 30 |
 
 </div>
+
+The rod with the length of $n$ can be split in $2^{n - 1}$ number of ways, and one of them is the optimal combination to have maximum revenue. How and in which combinations the pieces can be organized are presented below for the length of $3$ and $4$. 
+
+$$n = 3 \rightarrow \{(1, 1, 1), (1, 2), (2, 1) (3)\}$$
+$$n = 4 \rightarrow \{(1, 1, 1, 1), (1, 1, 2), (1, 2, 1), (2, 1, 1) (1, 3), (3, 1), (2, 2), (4)\}$$
