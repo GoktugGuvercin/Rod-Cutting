@@ -39,10 +39,22 @@ If we make a comparison between them, the term $r_1 + r_2$ can be decomposed int
 
 In this approach, we recursively split the rod into two pieces, and how we split it relies on revenue maximization. This strategy guarantees the optimal solution, but poses so many recursive calls with same, repeated sub-cases. To simplify it, we instead split the rod into two pieces, but first piece will be fixed; recursive calls are maintained through only the second (right) piece. In this formulation, the optimal solution to the main problem is subject to the recursion of one subproblem, not two. This results in such a recursive structure. 
 
-$$ r_n = max(p_i + r_{n-i} : 1 \leq i \leq n)$$
+$$ r_n = max(p_i + r_{n-i} : \\ 1 \leq i \leq n)$$
 
 <p align="center">
   <img src="https://github.com/GoktugGuvercin/Rod-Cutting/blob/main/images/recursive_approaches.png" width="700" title="Recursive Structures">
+</p>
+
+## Recursive Top-down Implementation
+
+In recursive implementation of `cut_rod()` function, we adapt the formulation $r_n = max(p_i + r_{n-i} : \\ 1 \leq i \leq n)$. This formulation is actually not a numerical calculation, instead a statement to define the general procedure. That is why, we can replicate the expression $p_i + r_{n - i}$ to define a set by iterating on index $i$ in a specific value range and apply `max()` operation on this set. In that case, we end up with the following expansion for $n = 5$:
+
+$$ r_5 = max(p_1 + r_4, p_2 + r_3, p_3 + r_2, p_4 + r_1, p_5 + r_0)$$
+
+In this expansion, the expression $p_i + r_{n-i}$ is abstractly instantiated, and max operation is applied on them. Nevertheless, in programming languages, we work with the values not the expressions. Hence, we need to compute each of these expressions individually, compare it with the next one by binary max operation, and store the result for the next compare. That is why, we define the variable `max_rev`, which stores the result of $$p_i + r_{n-i}$ for the next computation $$p_{i+1} + r_{n-i+1}$. Technically, $r_{n-i}$ in $r_n = max(p_i + r_{n-i})$ corresponds to recursive function call. 
+
+<p align="center">
+  <img src="https://github.com/GoktugGuvercin/Rod-Cutting/blob/main/images/implementation.png" width="700" title="Top-down Implementation">
 </p>
 
 
