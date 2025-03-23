@@ -51,7 +51,7 @@ In recursive implementation of `cut_rod()` function, we adapt the formulation $r
 
 $$ r_5 = max(p_1 + r_4, p_2 + r_3, p_3 + r_2, p_4 + r_1, p_5 + r_0)$$
 
-In this expansion, the expression $p_i + r_{n-i}$ is abstractly instantiated, and max operation is applied on them. Nevertheless, in programming languages, we work with the values not the expressions. Hence, we need to compute each of these expressions individually, compare it with the next one by binary max operation, and store the result for the next compare. That is why, we define the variable `max_rev`, which stores the result of $$p_i + r_{n-i}$ for the next computation $$p_{i+1} + r_{n-i+1}$. Technically, $r_{n-i}$ in $r_n = max(p_i + r_{n-i})$ corresponds to recursive function call. 
+In this expansion, the expression $p_i + r_{n-i}$ is abstractly instantiated, and max operation is applied on them. Nevertheless, in programming languages, we work with the values not the expressions. Hence, we need to compute each of these expressions individually, compare it with the next one by binary max operation, and store the result for the next compare. That is why, we define the variable `max_rev`, which stores the result of $p_i + r_{n-i}$ for the next computation $p_{i+1} + r_{n-i+1}$. Technically, $r_{n-i}$ in $r_n = max(p_i + r_{n-i})$ corresponds to recursive function call. 
 
 <p align="center">
   <img src="https://github.com/GoktugGuvercin/Rod-Cutting/blob/main/images/implementation.png" width="700" title="Top-down Implementation">
