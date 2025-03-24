@@ -45,7 +45,7 @@ $$ r_n = max(p_i + r_{n-i} : \\ 1 \leq i \leq n)$$
   <img src="https://github.com/GoktugGuvercin/Rod-Cutting/blob/main/images/recursive_approaches.png" width="700" title="Recursive Structures">
 </p>
 
-## Recursive Top-down Implementation
+## Top-Down Recursion
 
 In recursive implementation of `cut_rod()` function, we adapt the formulation $r_n = max(p_i + r_{n-i} : \\ 1 \leq i \leq n)$. This formulation is actually not a numerical calculation, instead a statement to define the general procedure. That is why, we can replicate the expression $p_i + r_{n - i}$ to define a set by iterating on index $i$ in a specific value range and apply `max()` operation on this set. In that case, we end up with the following expansion for $n = 5$:
 
@@ -57,5 +57,13 @@ In this expansion, the expression $p_i + r_{n-i}$ is abstractly instantiated, an
   <img src="https://github.com/GoktugGuvercin/Rod-Cutting/blob/main/images/implementation.png" width="700" title="Top-down Implementation">
 </p>
 
+
+## Top-Down Dynamic Programming
+
+Recursive top-down approach is quite effective; nevertheless, it visits and solves the same sub-problems many times even if recursive expression is defined well enough. Dynamic programming aims to save the solution of each subproblem into a lookup table so that it can retrieve the corresponding solution rather than recomputing it again. In that way, each subproblem is solved only once. This is called ***memoization***. 
+
+Our main strategy is to combine recursion with memoization by lookup table. We maintain completely same recursive implementation, but additionally we record the optimum revenue for each `n` into the slot of `revs[n]`. When the function `cut_rod()` is called for a specific value of `n` such as `n=5`, at first whether `revs[5]` has an already-computed result is checked, and it does not exist, recursive computation is initiated. 
+
+When we apply this strategy to rod-cutting problem, we prune many branches of recursion tree, and go from exponential-time to polynomial time. 
 
 
