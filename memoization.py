@@ -29,9 +29,10 @@ def bottom_up_cut_rod(n: int, p: dict):
 
     # going from smaller rods to larger rods (bottom-up)
     # j is a specific value of n
-    for j in range(n + 1):
+    for j in range(1, n + 1):
         rev = -sys.maxsize
-        for i in range(j + 1):  # max(p0 + rj, p1 + rj-1, ...)
+        for i in range(1, j + 1):  # max(p0 + rj, p1 + rj-1, ...)
             rev = max(rev, p[i] + revs[j - i])
 
         revs[j] = rev
+    return revs[n]
