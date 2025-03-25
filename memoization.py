@@ -21,3 +21,17 @@ def memoized_cut_rod_aux(n: int, p: dict, r: list):
 
     r[n] = rev
     return rev
+
+
+def bottom_up_cut_rod(n: int, p: dict):
+
+    revs = [0] + [-sys.maxsize for _ in range(1, n + 1)]
+
+    # going from smaller rods to larger rods (bottom-up)
+    # j is a specific value of n
+    for j in range(n + 1):
+        rev = -sys.maxsize
+        for i in range(j + 1):  # max(p0 + rj, p1 + rj-1, ...)
+            rev = max(rev, p[i] + revs[j - i])
+
+        revs[j] = rev
